@@ -11,7 +11,10 @@ const MyBtton = ({btnClassName,btnLabel,onbtnClick})=> {
 const Button = () => {
   const [count,setCount] = useState(0);
 
-  const decreaseHandler = ()=>setCount(count-1)
+  const decreaseHandler = ()=>{
+    // document.body.style.backgroundColor = 'red'
+    setCount(count-1)
+  }
 
   return (
     <>
@@ -30,3 +33,5 @@ const Button = () => {
 }
 
 export default Button
+
+
