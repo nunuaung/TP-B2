@@ -26,16 +26,15 @@ const TodoList = () => {
             const updatedTodoItems = todoItems.map((item,index)=>
             index === clickedId ? newText : item) 
             console.log("Update todo items "+updatedTodoItems)
-           
-           
-           
-           
-           
-           
             setTodoItems(updatedTodoItems)
         }
     }
 
+    const deleteHandler = (deleteId)=>{
+        let updatedTodoList = todoItems.filter((item,index)=> index != deleteId)
+        setTodoItems(updatedTodoList)
+    }
+    
   return (
     <div>
         <h2>TodoList</h2>
@@ -46,7 +45,7 @@ const TodoList = () => {
                 todoItems.map((item,index)=>
                 <div key={index} className='todo'>
                     <p>{item}</p><button type='button' onClick={()=>editHandler(index)}>Edit</button>
-                    <button>Delete</button>
+                    <button type='button' onClick={()=>deleteHandler(index)}>Delete</button>
                 </div> 
                 )
             }

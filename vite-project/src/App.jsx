@@ -4,6 +4,7 @@ import { MainTitle, SecondTitle } from './components/mainTitle/MainTitle'
 import StudentList from './components/studentList/StudentList'
 import SwitchTheme from './components/switchTheme/SwitchTheme'
 import Parent from './pages/Parent'
+import Count from './pages/count/Count'
 import TodoList from './pages/todoList/TodoList'
 // import Todo from './pages/Todo'
 // import Login from './pages/login/Login'
@@ -24,6 +25,7 @@ function App() {
       <StudentList/>
       {/* <Login/> */}
       <TodoList/>
+      <Count/>
     </div>
   )
 }
