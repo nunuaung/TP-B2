@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import userContext from '../../store/userContext'
 
 const Count = () => {
+  const contextValue = useContext(userContext)
     const [myCount, setMyCount] =useState(0)
     const [isSubmite, setIsSubmited] = useState(false)
 
@@ -29,6 +31,7 @@ const Count = () => {
   return (
     <div>My Count {myCount}
         <button type='button' onClick={submitHandler}>Submit</button>
+        <h2>Context value : {contextValue}</h2>
     </div>
   )
 }

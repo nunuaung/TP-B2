@@ -3,30 +3,53 @@ import Button from './components/button/Button'
 import { MainTitle, SecondTitle } from './components/mainTitle/MainTitle'
 import StudentList from './components/studentList/StudentList'
 import SwitchTheme from './components/switchTheme/SwitchTheme'
+import About from './pages/About'
+import Blog from './pages/Blog'
+import Contact from './pages/Contact'
+import Nav from './pages/Nav'
 import Parent from './pages/Parent'
 import Count from './pages/count/Count'
 import TodoList from './pages/todoList/TodoList'
+import  userContext  from './store/userContext'
 // import Todo from './pages/Todo'
 // import Login from './pages/login/Login'
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 
 function App() {
+  const userName = 'Admin'
 
   return (
-    <div>
+    <userContext.Provider value={userName}>
+      
+      <BrowserRouter>
+        <Nav/>
+        {/* <nav>
+          <Link to="/about">About</Link>
+          <Link to="/contact">Contact</Link>
+          <Link to="/blog">Blog</Link>
+        </nav> */}
+      <Routes>
+        {/* <Route path="/" /> */}
+        <Route path='/about' element={<About/>}/>
+        <Route path='/contact' element={<Contact/>}/>
+        <Route path='/blog' element={<Blog/>} />
       {/* <MainTitle title="Title1"/> */}
       {/* <MainTitle title="titel1" /> */}
       {/* <MainTitle title="Title2" />
       <MainTitle title="Title3"/> */}
-      <SecondTitle/>
+      {/* <SecondTitle />
       <MainTitle/>
-      <Button/>
-      <Parent/>
+        <Button/>
+        <Parent/>
       <SwitchTheme/>
-      <StudentList/>
+      <StudentList/> */}
       {/* <Login/> */}
-      <TodoList/>
-      <Count/>
-    </div>
+      {/* <TodoList/> */}
+      {/* <Count/> */}
+    </Routes>
+    </BrowserRouter>
+    {/* <Count/> */}
+    </userContext.Provider>
   )
 }
 export default App
