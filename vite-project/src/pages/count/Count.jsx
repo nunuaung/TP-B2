@@ -30,8 +30,8 @@ const Count = () => {
 
   return (
     <div>My Count {myCount}
-        <button type='button' onClick={submitHandler}>Submit</button>
-        <h2>Context value : {contextValue}</h2>
+        <button type='button' onClick={submitHandler} className='bg-orange-400'>Submit</button>
+        <h2>Context value : {contextValue.name}</h2>
     </div>
   )
 }
