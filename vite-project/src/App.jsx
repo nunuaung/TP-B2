@@ -14,7 +14,7 @@ import  userContext  from './store/userContext'
 // import Todo from './pages/Todo'
 // import Login from './pages/login/Login'
 import Home from './pages/Home'
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import BlogDetail from './pages/BlogDetail'
 
@@ -25,16 +25,13 @@ function App() {
   }
   const [userData,setUserData] = useState(user)
 
+  
+
   return (
     <userContext.Provider value={userData}>
       
       <BrowserRouter>
         <Nav/>
-        {/* <nav>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/blog">Blog</Link>
-        </nav> */}
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
