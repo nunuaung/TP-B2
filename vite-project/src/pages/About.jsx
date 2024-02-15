@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { useQuery } from 'react-query';
 
 const About = () => {
 const [dataList,setDataList] = useState([]);
@@ -35,19 +36,28 @@ const [dataList,setDataList] = useState([]);
     userId: 'user2',
   }
 
-  useEffect(()=>{
-    axios.get('https://jsonplaceholder.typicode.com/posts').then((res)=>setDataList(res.data))
-  },[])
+  // useEffect(()=>{
+  //   axios.get('https://jsonplaceholder.typicode.com/posts').then((res)=>setDataList(res.data))
+  // },[])
 
-  useEffect(()=>{
-    axios.post('https://jsonplaceholder.typicode.com/posts',body).then((res)=>console.log(res.data.id))
-  },[])
+  // useEffect(()=>{
+  //   axios.post('https://jsonplaceholder.typicode.com/posts',body).then((res)=>console.log(res.data.id))
+  // },[])
 
+  const fetchData = ()=>{
+    return axios.get('https://jsonplaceholder.typicode.com/posts').then((res)=>res.data)
+  }
+
+  const {data,isLoading} = useQuery({
+    queryKey: ["postData"],
+    queryFn: fetchData,
+  })
 
   return (
     <div>About
       {
-        dataList.map((item)=>
+        isLoading ? <p></p> :
+        data.map((item)=>
         <p key={item.id}>{item.title}</p>
         )
       }
